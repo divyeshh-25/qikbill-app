@@ -19,7 +19,7 @@ class Authenticate extends Middleware
         // Admin area detection by prefix
         if ($request->is('admin') || $request->is('admin/*')) {
             // prefer named route if exists, otherwise fallback to admin login URL
-            return Route::has('admin.login') ? route('admin.login') : url('/admin/login');
+            return Route::has('admin.login') ? route('login') : url('/');
         }
 
         // For normal users: prefer named route when available
