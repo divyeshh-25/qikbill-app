@@ -22,6 +22,9 @@
  <!-- Fontawesome CSS -->
  <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
+ 
+ <!-- Toatr CSS -->		
+ <link rel="stylesheet" href="{{ asset('assets/plugins/toastr/toastr.css') }}">
 
  <!-- Daterangepikcer CSS -->
  <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">

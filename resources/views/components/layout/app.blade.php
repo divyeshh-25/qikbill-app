@@ -44,8 +44,9 @@
 
     </div>
     <!-- /Main Wrapper -->
-
     <x-layout.script />
+
+    <x-layout.toastr />
 
     @stack('scripts')
 </body>
