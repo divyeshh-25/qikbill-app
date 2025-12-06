@@ -10,7 +10,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.dashboard');
     })->name('dashboard');
 });
-
-Route::get('/', function () {
-    return view('super_admin.dashboard');
-})->name('super_admin.dashboard');
