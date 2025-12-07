@@ -35,6 +35,10 @@
 
   <script src="{{ asset('assets/plugins/sweetalert/sweetalert.all.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('assets/plugins/sweetalert/sweetalerts.min.js') }}" type="text/javascript"></script>
+  <scipt src="{{ asset('assets/plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
+
+  <script src="{{ asset('assets/plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/plugins/toastr/toastr.js') }}" type="text/javascript"></script>
   <!-- Custom JS -->
   <script src="{{ asset('assets/js/theme-colorpicker.js') }}" type="text/javascript"></script>
   <script src="{{ asset('assets/js/script.js') }}" type="text/javascript"></script>
