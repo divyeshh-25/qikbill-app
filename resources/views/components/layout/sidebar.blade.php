@@ -118,8 +118,8 @@
                         <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Products" link="product-list.html" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Create Product" link="add-product.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Category" link="category-list.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Sub Category" link="sub-categories.html" />
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Category" link="{{ route('admin.categories.index') }}" />
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Sub Category" link="{{ route('admin.categories.subcatgories') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="POS" link="pos.html" />
                     </ul>
                 </li>

@@ -33,8 +33,12 @@
   <!-- Color Picker JS -->
   <script src="{{ asset('assets/plugins/@simonwep/pickr/pickr.es5.min.js') }}" type="text/javascript"></script>
 
+  <script src="{{ asset('assets/plugins/sweetalert/sweetalert.all.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/plugins/sweetalert/sweetalerts.min.js') }}" type="text/javascript"></script>
   <!-- Custom JS -->
   <script src="{{ asset('assets/js/theme-colorpicker.js') }}" type="text/javascript"></script>
   <script src="{{ asset('assets/js/script.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/theme-script.js') }}" type="theme-text/javascript"></script>
 
   <script src="{{ asset('assets/rocket-loader.min.js') }}" defer></script>
+  <script src="{{ asset('assets/js/custom.js') }}"> </script>
