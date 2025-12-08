@@ -101,7 +101,7 @@
                     <h6 class="submenu-hdr">Super Admin</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Dashboard" link="{{ route('super_admin.dashboard') }}" />
+                        {{--  <x-layout.sidebar.item icon="ti ti-user-edit" label="Dashboard" link="{{ route('super_admin.dashboard') }}" />  --}}
                         <x-layout.sidebar.item icon="ti ti-list-details" label="Companies" link="companies.html" />
                         <x-layout.sidebar.item icon="ti ti-stairs-up" label="Subscriptions" link="subscription.html" />
                         <x-layout.sidebar.item icon="ti ti-shopping-bag" label="Packages" link="packages.html" />
@@ -113,10 +113,9 @@
                 <!-- Admin -->
                 <li class="submenu-open">
                     <h6 class="submenu-hdr">Admin</h6>
-
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Products" link="product-list.html" />
+                    {{--  <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" />  --}}
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Products" link="{{ route('admin.products.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Create Product" link="add-product.html" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Category" link="{{ route('admin.categories.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Sub Category" link="{{ route('admin.categories.subcatgories') }}" />
@@ -130,7 +129,7 @@
 
                     <ul>
                         <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="users.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="customers.html" />
+                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="{{ route('admin.customers.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="roles-permissions.html" />
                         <x-layout.sidebar.item icon="ti ti-trash-x" label="Delete Account Request" link="delete-account.html" />
                     </ul>

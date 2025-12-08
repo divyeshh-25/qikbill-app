@@ -55,9 +55,16 @@ class CategoryController extends Controller
     /**
      * edit
      */
-    public function edit(Category $category)
+    public function edit(Request $request, Category $category)
     {
-        return view('admin.categories.edit',compact('category'));
+        $type = $request->query('type');
+        $categories = null;
+
+        if ($type === 'subcategory') {
+            $categories = Category::whereNull('parent_id')->get();
+        }
+
+        return view('admin.categories.edit', compact('category', 'type', 'categories'));
     }
 
      /**

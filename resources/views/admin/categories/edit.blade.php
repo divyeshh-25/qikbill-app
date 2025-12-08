@@ -2,6 +2,21 @@
     @csrf
     @method('PUT')
 
+     @if($type === 'subcategory')
+     <div class="mb-3">
+         <label class="form-label">Parent Category <span class="text-danger">*</span></label>
+         <select name="parent_id" class="form-control" required>
+             <option value="">Select Parent Category</option>
+
+             @foreach($categories as $cat)
+                 <option value="{{ $cat->id }}"
+                     {{ $category->parent_id == $cat->id ? 'selected' : '' }}>
+                     {{ $cat->name }}
+                 </option>
+             @endforeach
+         </select>
+     </div>
+ @endif
     <div class="mb-3">
         <label class="form-label">Category <span class="text-danger ms-1">*</span></label>
         <input type="text"

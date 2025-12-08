@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use Termwind\Components\Raw;
 
@@ -15,6 +17,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     })->name('dashboard');
 
     Route::resource('categories',CategoryController::class);
+    Route::resource('products',ProductController::class);
+    Route::resource('customers', CustomerController::class);
+
     Route::get('/subcatgories',[CategoryController::class,'subcategory'])->name('categories.subcatgories');
 });
 

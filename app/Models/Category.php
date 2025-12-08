@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Traits\CategoryAttributes;
+use App\Models\Traits\Category as TraitsCategory;
 use App\Traits\BelongsToTenant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Category extends Model
 {
-    use CategoryAttributes;
+    use TraitsCategory;
     use BelongsToTenant;
 
     protected $fillable = ['tenant_id','name','slug','status','description','parent_id'];
