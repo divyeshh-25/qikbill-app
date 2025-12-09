@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'phone' => 'required|string|max:15',
             'status' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'role_id' => 'required|exists:roles,id'
+            'role_id' => 'required|exists:roles,id'
         ];
 
         if ($this->isMethod('POST')) {

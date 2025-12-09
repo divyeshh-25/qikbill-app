@@ -28,13 +28,13 @@
         <div class="col-lg-12">
             <div class="mb-3">
                 <label class="form-label">Role<span class="text-danger ms-1">*</span></label>
-                <select class="form-select" name="role" id="role">
-                    <option>Select</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Manager</option>
-                    <option value="3">Salesman</option>
+                <select class="form-select" name="role_id" id="role_id">
+                    <option value="" selected disabled>Select</option>
+                    @foreach ($roles as $role)
+                        <option value="{{ $role->id }}">{{ ucfirst($role->name) }}</option>
+                    @endforeach
                 </select>
-                <span class="error-span" id="err-role"></span>
+                <span class="error-span" id="err-role_id"></span>
             </div>
         </div>
         <div class="col-lg-12">

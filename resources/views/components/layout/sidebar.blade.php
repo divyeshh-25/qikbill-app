@@ -129,9 +129,9 @@
                     <h6 class="submenu-hdr">User Management</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="users.html" />
+                        <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="{{ route('admin.users.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="customers.html" />
-                        <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="roles-permissions.html" />
+                        <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="{{ route('admin.roles.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-trash-x" label="Delete Account Request" link="delete-account.html" />
                     </ul>
                 </li>

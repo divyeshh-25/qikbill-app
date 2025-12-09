@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Interfaces\UserInterface;
 use Illuminate\Support\Str;
@@ -28,7 +29,7 @@ class UserRepository implements UserInterface
 
     public function create(array $data)
     {
-        if($data['image']){
+        if(isset($data['image'])){
             $image = $data['image'];
             $imageName = Str::slug($data['name']).'-'.time().'.'.$image->getClientOriginalExtension();
             $image->storeAs('users', $imageName, 'public');
@@ -38,8 +39,10 @@ class UserRepository implements UserInterface
         if(!isset($data['tenant_id'])){
             $data['tenant_id'] = auth()->user()->tenant_id;
         }
+        $role_id = $data['role_id'];
         $user = User::create($data);
         if($user){
+            $user->assignRole(Role::find($role_id));
             return $user;
         }
         return false;

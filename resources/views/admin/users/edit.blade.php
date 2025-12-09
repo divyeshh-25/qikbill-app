@@ -35,10 +35,10 @@
             <div class="mb-3">
                 <label class="form-label">Role<span class="text-danger ms-1">*</span></label>
                 <select class="form-select" name="role" id="role">
-                    <option>Select</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Manager</option>
-                    <option value="3">Salesman</option>
+                    <option value="" disabled>Select</option>
+                    @foreach ($roles as $role)
+                        <option value="{{ $role->id }}" {{ $user->hasRole($role) ? 'selected' : '' }}>{{ ucfirst($role->name) }}</option>
+                    @endforeach
                 </select>
                 <span class="error-span" id="err-role"></span>
             </div>
