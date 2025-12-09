@@ -120,6 +120,9 @@ $(document).ready(function(){
 			"bFilter": true,
 			"sDom": 'fBtlpi',  
 			"ordering": true,
+			"paging": false,
+			"info": false,
+			"lengthChange": false,
 			"language": {
 				search: ' ',
 				sLengthMenu: '_MENU_',

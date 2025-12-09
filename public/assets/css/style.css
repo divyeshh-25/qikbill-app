@@ -11183,6 +11183,8 @@ svg.collapse-open, svg.collapse-close {
 }
 .modal .close,
 .modal .btn-close {
+  padding: 12px;
+  font-size: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11199,7 +11201,7 @@ svg.collapse-open, svg.collapse-close {
   border: 0;
   font-weight: 700;
   background-color: #FF0000;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 .modal .close:hover,
 .modal .btn-close:hover {
@@ -37098,9 +37100,9 @@ span.unlimited-text {
   margin-right: 5px;
 }
 
-#phone, #phone2, #phone3 {
+/* #phone, #phone2, #phone3 {
   padding-left: 50px;
-}
+} */
 
 .total-employees {
   background-color: #FAFBFE;

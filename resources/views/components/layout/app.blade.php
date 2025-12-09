@@ -13,6 +13,7 @@
         content="inventory management, admin dashboard, bootstrap template, invoicing, estimates, business management, responsive admin, POS system">
     <meta name="author" content="Divyesh Technologies">
     <meta name="robots" content="index, follow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? 'QikBill POS - Your Bill Mitra' }}</title>
 
     <script src="{{ asset('assets/js/theme-script.js') }}" type="theme-text/javascript"></script>
@@ -43,10 +44,13 @@
         </div>
 
     </div>
+
     <!-- /Main Wrapper -->
     <x-layout.script />
 
     <x-layout.toastr />
+
+    <x-layout.modal />
 
     @stack('scripts')
 </body>
