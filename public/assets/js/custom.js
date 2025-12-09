@@ -19,31 +19,30 @@ function closeModal() {
     commonModal.hide();
 }
 
-function showToastr(type, title, message) {
-    var f = document.getElementById("liveToast");
-    var a = new bootstrap.Toast(f).show();
-    if (type == "success") {
-        $("#liveToast")
-            .removeClass("bg-danger")
-            .removeClass("bg-warning")
-            .addClass("bg-success");
-    } else if (type == "warning") {
-        $("#liveToast").removeClass("bg-danger").addClass("bg-warning");
-    } else {
-        $("#liveToast")
-            .removeClass("bg-success")
-            .removeClass("bg-warning")
-            .addClass("bg-danger");
-    }
-    $("#liveToast .toast-body .toast-title").html(title);
-    $("#liveToast .toast-body .toast-text").html(message);
-}
+// function showToastr(type, title, message) {
+//     var f = document.getElementById("liveToast");
+//     var a = new bootstrap.Toast(f).show();
+//     if (type == "success") {
+//         $("#liveToast")
+//             .removeClass("bg-danger")
+//             .removeClass("bg-warning")
+//             .addClass("bg-success");
+//     } else if (type == "warning") {
+//         $("#liveToast").removeClass("bg-danger").addClass("bg-warning");
+//     } else {
+//         $("#liveToast")
+//             .removeClass("bg-success")
+//             .removeClass("bg-warning")
+//             .addClass("bg-danger");
+//     }
+//     $("#liveToast .toast-body .toast-title").html(title);
+//     $("#liveToast .toast-body .toast-text").html(message);
+// }
 
 $(document).on(
     "click",
     'a[data-ajax-popup="true"], button[data-ajax-popup="true"], div[data-ajax-popup="true"]',
     function () {
-        console.log("Asd");
         var title = $(this).data("title");
         var size = $(this).data("size") == "" ? "md" : $(this).data("size");
         var url = $(this).data("url");

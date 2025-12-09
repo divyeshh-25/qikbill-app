@@ -141,7 +141,7 @@
 
                     <ul>
                         <x-layout.sidebar.item icon="ti ti-user-circle" label="Profile" link="profile.html" />
-                        <x-layout.sidebar.item icon="ti ti-settings" label="Setting" link="settings.html" />
+                        <x-layout.sidebar.item icon="ti ti-settings" label="Setting" link="{{ route('admin.setting.get-company-setting') }}" />
                         <x-layout.sidebar.item icon="ti ti-help-circle" label="FAQ" link="faq.html" />
                     </ul>
                 </li>
