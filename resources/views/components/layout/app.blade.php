@@ -14,6 +14,7 @@
         content="inventory management, admin dashboard, bootstrap template, invoicing, estimates, business management, responsive admin, POS system">
     <meta name="author" content="Divyesh Technologies">
     <meta name="robots" content="index, follow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? 'QikBill POS - Your Bill Mitra' }}</title>
     <x-layout.css />
     @stack('styles')
@@ -37,42 +38,13 @@
         </div>
     </div>
     <x-layout.modal />
-    <x-layout.toastr />
+    <!-- /Main Wrapper -->
     <x-layout.script />
-    <script>
-        const showToast = (header, message, type = 'success') => {
-            const toastContainer = document.getElementById('toastContainer');
-            const toastEl = document.getElementById('toast');
-            const toastHeaderContainer = document.getElementById('toastHeaderContainer');
-            const toastHeader = document.getElementById('toastHeader');
-            const toastMessage = document.getElementById('toastMessage');
-            toastHeader.textContent = header;
-            toastMessage.textContent = message;
-            toastEl.classList.remove('bg-success', 'bg-danger', 'bg-warning', 'bg-info');
-            switch (type) {
-                case 'success':
-                    toastEl.classList.add('bg-success', 'text-fixed-white');
-                    toastHeaderContainer.classList.add('bg-success');
-                    break;
-                case 'error':
-                    toastEl.classList.add('bg-danger', 'text-fixed-white');
-                    toastHeaderContainer.classList.add('bg-danger');
-                    break;
-                case 'warning':
-                    toastEl.classList.add('bg-warning', 'text-fixed-white');
-                    toastHeaderContainer.classList.add('bg-warning');
-                    break;
-                case 'info':
-                default:
-                    toastEl.classList.add('bg-info', 'text-fixed-white');
-                    toastHeaderContainer.classList.add('bg-info');
-                    break;
-            }
-            // Show the toast
-            const toast = new bootstrap.Toast(toastEl)
-            toast.show()
-        }
-    </script>
+
+    <x-layout.toastr />
+
+    <x-layout.modal />
+
     @stack('scripts')
 </body>
 </html>
