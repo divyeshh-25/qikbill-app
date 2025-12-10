@@ -24,9 +24,9 @@ class CustomerRequest extends FormRequest
         $id = $this->route('customer');
 
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'nullable|email|unique:customers,email,' . $id,
-            'phone' => 'nullable|string|max:20',
+            'name' => 'required|string|max:255|unique:customers,email,' . $id,
+            'email' => 'required|email|unique:customers,email,' . $id,
+            'phone' => 'required|string|max:20',
         ];
     }
 }

@@ -22,13 +22,13 @@ class CategoryDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return $row->action;
+                return $row->actions(false,true,true);
             })
             ->editColumn('category_id', function ($row) {
                 return $row->category ? $row->category->name : 'N/A';
             })
             ->editColumn('status', function ($row) {
-                return $row->statusBadge;
+                return $row->status;
             })
             ->editColumn('parent_id', function ($row) {
                 return $row->parent ? $row->parent->name : 'N/A';
@@ -66,10 +66,26 @@ class CategoryDataTable extends DataTable
                     ->minifiedAjax()
                     ->orderBy(1)
                     ->selectStyleSingle()
-                    ->language([
-                        'paginate' => [
-                            'previous' => '<i class="fa fa-angle-left"></i>',
-                            'next' => '<i class=" fa fa-angle-right"></i>',
+                    ->parameters([
+                        'initComplete' => 'function () {
+                            var table = this.api();
+                            $("#custom-search").on("input", function() {
+                                table.search(this.value).draw();
+                            });
+                        }',
+                        'processing' => false,
+                        'dom' =>
+                        'Brt' .
+                            '<"row d-flex justify-content-between align-items-center"
+                                <"col-md-6 d-flex align-items-center"l>
+                                <"col-md-6 d-flex justify-content-end"p>
+                            >',
+                        'footerCallback' => false,
+                        'language' => [
+                            'paginate' => [
+                                'next' => '<i class="fa fa-angle-right"></i>',
+                                'previous' => '<i class="fa fa-angle-left"></i>'
+                            ]
                         ],
                     ])
                     ->buttons([

@@ -10,6 +10,7 @@
                     <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                 @endforeach
             </select>
+            <span class="text-sm text-danger" id="err-parent_id"></span>
         </div>
     @else
         <input type="hidden" name="parent_id" value="">
@@ -18,11 +19,13 @@
     <div class="mb-3">
         <label class="form-label">Category<span class="text-danger ms-1">*</span></label>
         <input type="text" class="form-control" name="name" required>
+        <span class="text-sm text-danger" id="err-name"></span>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Description<span class="text-danger ms-1">*</span></label>
         <textarea class="form-control" name="description" required></textarea>
+        <span class="text-sm text-danger" id="err-description"></span>
     </div>
 
     <div class="mb-3">
@@ -31,10 +34,7 @@
             <option value="published" selected>Published</option>
             <option value="draft">Draft</option>
         </select>
-    </div>
+        <span class="text-sm text-danger" id="err-status"></span>
 
-    <div class="text-end mt-4">
-        <button type="button" class="btn me-2 btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Add Category</button>
     </div>
 </form>

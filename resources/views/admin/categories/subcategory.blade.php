@@ -16,11 +16,7 @@
                 </li>
             </ul>
             <div class="page-btn">
-                <button class="btn btn-primary"
-                data-url="{{ route('admin.categories.create', ['type' => 'subcategory']) }}"
-                data-type="add"
-                data-title="Add Sub Category"
-                data-ajax-popup="true">
+                <button class="btn btn-primary" id="add-category" data-type="subcategory">
                 Add Subcategory
             </button>
             </div>
@@ -56,5 +52,6 @@
     </div>
     @push('scripts')
     {{ $dataTable->scripts() }}
+    @include('admin.categories.js.category-js')
     @endpush
 </x-layout.app>

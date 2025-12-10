@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Models\Traits\Product as TraitsProduct;
+use App\Models\Traits\Reusable;
 use App\Traits\BelongsToTenant;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     use TraitsProduct;
-    use BelongsToTenant;
+    use BelongsToTenant,Reusable;
 
     protected $fillable = [
         'tenant_id',

@@ -3,144 +3,98 @@
         <div class="content">
             <div class="card">
                 <div class="card-body">
-                    <form action="general-settings.html">
-                        <div class="card-title-head">
-                            <h6 class="fs-16 fw-bold mb-3">
-                                <span class="fs-16 me-2"><i class="ti ti-user"></i></span>
-                                Company Setting
-                            </h6>
+
+                    <form action="{{ route('admin.setting.company-update', $companySetting->id) }}"
+                          method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+
+                        <!-- Company Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Company Name <span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control"
+                                   value="{{ old('name', $companySetting->name) }}" required>
+
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="profile-pic-upload">
-                            <div class="profile-pic">
-                                <span>
-                                    <i class="ti ti-circle-plus mb-1 fs-16"></i> Add Image
-                                </span>
-                            </div>
-                            <div class="new-employee-field">
-                                <div class="mb-0">
-                                    <div class="image-upload mb-0">
-                                        <input type="file">
-                                        <div class="image-uploads">
-                                            <h4>Upload Image</h4>
-                                        </div>
-                                    </div>
-                                    <span class="fs-13 fw-medium mt-2">
-                                        Upload an image below 2 MB, Accepted File format JPG, PNG
-                                    </span>
-                                </div>
-                            </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control"
+                                   value="{{ old('email', $companySetting->email) }}">
+
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        First Name <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        Last Name <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        User Name <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        Phone Number <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        Email <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="email" class="form-control">
-                                </div>
-                            </div>
+
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <textarea name="address" class="form-control" rows="3">{{ old('address', $companySetting->address) }}</textarea>
+
+                            @error('address')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="card-title-head">
-                            <h6 class="fs-16 fw-bold mb-3">
-                                <span class="fs-16 me-2"><i class="ti ti-map-pin"></i></span>
-                                Address Information
-                            </h6>
+
+                        <!-- Logo Upload -->
+                        <div class="mb-3">
+                            <label class="form-label">Logo</label>
+
+                            @if($companySetting->logo)
+                                <div class="mb-2">
+                                    <img src="{{ asset('storage/'.$companySetting->logo) }}" width="100">
+                                </div>
+                            @endif
+
+                            <input type="file" class="form-control" name="logo" accept="image/*">
+                            <small>Recommended: PNG/JPG, Max 2MB</small>
+
+                            @error('logo')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        Address <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="email" class="form-control">
+
+                        <!-- Favicon Upload -->
+                        <div class="mb-3">
+                            <label class="form-label">Favicon</label>
+
+                            @if($companySetting->favicon)
+                                <div class="mb-2">
+                                    <img src="{{ asset('storage/'.$companySetting->favicon) }}" width="40">
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        Country <span class="text-danger">*</span>
-                                    </label>
-                                    <select class="select">
-                                        <option>Select</option>
-                                        <option>USA</option>
-                                        <option>India</option>
-                                        <option>French</option>
-                                        <option>Australia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        State <span class="text-danger">*</span>
-                                    </label>
-                                    <select class="select">
-                                        <option>Select</option>
-                                        <option>Alaska</option>
-                                        <option>Mexico</option>
-                                        <option>Tasmania</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        City <span class="text-danger">*</span>
-                                    </label>
-                                    <select class="select">
-                                        <option>Select</option>
-                                        <option>Anchorage</option>
-                                        <option>Tijuana</option>
-                                        <option>Hobart</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">
-                                        Postal Code <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
+                            @endif
+
+                            <input type="file" class="form-control" name="favicon" accept="image/*">
+
+                            @error('favicon')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="text-end settings-bottom-btn mt-0">
-                            <button type="button" class="btn btn-secondary me-2">Cancel</button>
+
+                        <!-- Show Logo or Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Show Logo OR Name</label>
+                            <select name="show_logo_or_name" class="form-select">
+                                <option value="logo" {{ $companySetting->show_logo_or_name == 'logo' ? 'selected' : '' }}>Logo</option>
+                                <option value="name" {{ $companySetting->show_logo_or_name == 'name' ? 'selected' : '' }}>Name</option>
+                            </select>
+
+                            @error('show_logo_or_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="text-end mt-3">
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                         </div>
+
                     </form>
+
                 </div>
             </div>
         </div>

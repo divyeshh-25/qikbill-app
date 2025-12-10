@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\CustomerDataTable;
+use App\Helpers\Reply;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRequest;
 use App\Repositories\Interfaces\CustomerRepositoryInterface;
@@ -30,8 +31,7 @@ class CustomerController extends Controller
     {
         $this->customers->create($request->validated());
 
-        return redirect()->route('admin.customers.index')
-            ->with('success', 'Customer created successfully');
+        return Reply::success('Customer created successfully');
     }
 
     public function edit($id)
@@ -44,14 +44,13 @@ class CustomerController extends Controller
     {
         $this->customers->update($id, $request->validated());
 
-        return redirect()->route('admin.customers.index')
-            ->with('success', 'Customer updated successfully');
+        return Reply::success('Customer updated successfully');
     }
 
     public function destroy($id)
     {
         $this->customers->delete($id);
 
-        return back()->with('success', 'Customer deleted successfully');
+        return Reply::success('Customer deleted successfully');;
     }
 }

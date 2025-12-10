@@ -20,7 +20,7 @@ class ProductDataTable extends DataTable
                 return $row->statusBadge;
             })
             ->addColumn('action', function ($row) {
-                return $row->action;
+                return $row->actions(false,true,true);
             })
             ->rawColumns(['status', 'action', 'category']);
     }
@@ -35,14 +35,30 @@ class ProductDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('products-table')
+            ->setTableId('data-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->orderBy(1)
-            ->language([
-                'paginate' => [
-                    'previous' => '<i class="fa fa-angle-left"></i>',
-                    'next' => '<i class=" fa fa-angle-right"></i>',
+            ->parameters([
+                'initComplete' => 'function () {
+                    var table = this.api();
+                    $("#custom-search").on("input", function() {
+                        table.search(this.value).draw();
+                    });
+                }',
+                'processing' => false,
+                'dom' =>
+                'Brt' .
+                    '<"row d-flex justify-content-between align-items-center"
+                        <"col-md-6 d-flex align-items-center"l>
+                        <"col-md-6 d-flex justify-content-end"p>
+                    >',
+                'footerCallback' => false,
+                'language' => [
+                    'paginate' => [
+                        'next' => '<i class="fa fa-angle-right"></i>',
+                        'previous' => '<i class="fa fa-angle-left"></i>'
+                    ]
                 ],
             ])
             ->responsive(true)

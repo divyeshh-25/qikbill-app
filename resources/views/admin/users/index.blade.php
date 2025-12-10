@@ -205,7 +205,6 @@
                 deleteModal('Delete User', 'Are you sure you want to delete users?');
                 $("#delete-modal-btn").attr('data-id', id);
             });
-
             $(document).on('click', '#delete-modal-btn', function() {
                 let id = $(this).data('id');
                 let url = "{{ route('admin.users.delete', ':id') }}";

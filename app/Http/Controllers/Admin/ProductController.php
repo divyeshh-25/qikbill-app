@@ -33,10 +33,11 @@ class ProductController extends Controller
         $validated = $request->validate([
             'sku' => 'required|unique:products',
             'name' => 'required',
-            'category_id' => 'nullable|exists:categories,id',
+            'category_id' => 'required|exists:categories,id',
             'price' => 'required|numeric',
             'cost_price' => 'required|numeric',
             'stock_quantity' => 'required|integer',
+            'description' => 'required'
         ]);
 
         $this->service->store($validated);

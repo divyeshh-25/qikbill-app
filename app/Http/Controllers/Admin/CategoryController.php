@@ -57,7 +57,7 @@ class CategoryController extends Controller
      */
     public function edit(Request $request, Category $category)
     {
-        $type = $request->query('type');
+        $type = $category->parent_id == null ? '' : 'subcategory';
         $categories = null;
 
         if ($type === 'subcategory') {

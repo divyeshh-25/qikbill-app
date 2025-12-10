@@ -21,7 +21,7 @@ class CustomerDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return $row->action;
+                return $row->actions(false,true,true);
             })
             ->rawColumns(['action']);
     }

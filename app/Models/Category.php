@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Category as TraitsCategory;
+use App\Models\Traits\Reusable;
 use App\Traits\BelongsToTenant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,7 +11,7 @@ use Illuminate\Support\Str;
 class Category extends Model
 {
     use TraitsCategory;
-    use BelongsToTenant;
+    use BelongsToTenant,Reusable;
 
     protected $fillable = ['tenant_id','name','slug','status','description','parent_id'];
 
