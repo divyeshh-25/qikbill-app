@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
+use App\Models\Role;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin.users.create');
+        $roles = Role::where('tenant_id',auth()->user()->tenant_id)->get();
+        return view('admin.users.create',compact('roles'));
     }
 
     public function store(UserRequest $request)
@@ -53,7 +55,8 @@ class UserController extends Controller
                 'message' => 'User not found.'
             ], 404);
         }
-        return view('admin.users.edit', compact('user'));
+        $roles = Role::where('tenant_id',auth()->user()->tenant_id)->get();
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     public function update(UserRequest $request, User $user)

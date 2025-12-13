@@ -97,24 +97,24 @@
             <ul>
 
                 <!-- Super Admin -->
-                <li class="submenu-open">
+                {{-- <li class="submenu-open">
                     <h6 class="submenu-hdr">Super Admin</h6>
 
                     <ul>
-                        {{--  <x-layout.sidebar.item icon="ti ti-user-edit" label="Dashboard" link="{{ route('super_admin.dashboard') }}" />  --}}
+                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Dashboard" link="{{ route('super_admin.dashboard') }}" /> 
                         <x-layout.sidebar.item icon="ti ti-list-details" label="Companies" link="companies.html" />
                         <x-layout.sidebar.item icon="ti ti-stairs-up" label="Subscriptions" link="subscription.html" />
                         <x-layout.sidebar.item icon="ti ti-shopping-bag" label="Packages" link="packages.html" />
                         <x-layout.sidebar.item icon="ti ti-brand-apple-arcade" label="Domain" link="domain.html" />
                         <x-layout.sidebar.item icon="ti ti-carousel-vertical" label="Purchase Transaction" link="purchase-transaction.html" />
                     </ul>
-                </li>
+                </li> --}}
 
                 <!-- Admin -->
                 <li class="submenu-open">
                     <h6 class="submenu-hdr">Admin</h6>
                     <ul>
-                    {{--  <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" />  --}}
+                     <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" /> 
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Products" link="{{ route('admin.products.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Create Product" link="add-product.html" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Category" link="{{ route('admin.categories.index') }}" />
@@ -128,9 +128,9 @@
                     <h6 class="submenu-hdr">User Management</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="users.html" />
+                        <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="{{ route('admin.users.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="{{ route('admin.customers.index') }}" />
-                        <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="roles-permissions.html" />
+                        <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="{{ route('admin.roles.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-trash-x" label="Delete Account Request" link="delete-account.html" />
                     </ul>
                 </li>
