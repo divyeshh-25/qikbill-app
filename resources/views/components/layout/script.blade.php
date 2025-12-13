@@ -33,6 +33,12 @@
 <!-- Color Picker JS -->
 <script src="{{ asset('assets/plugins/@simonwep/pickr/pickr.es5.min.js') }}" type="text/javascript"></script>
 
+<!-- Owl JS -->
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}" type="text/javascript"></script>
+
+<!-- Theiastickysidebar JS -->
+<script src="{{ asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('assets/plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/plugins/toastr/toastr.js') }}" type="text/javascript"></script>

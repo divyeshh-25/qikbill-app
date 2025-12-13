@@ -27,6 +27,10 @@
  <!-- Toatr CSS -->		
  <link rel="stylesheet" href="{{ asset('assets/plugins/toastr/toastr.css') }}">
 
+ <!-- Owl Carousel CSS --> 
+ <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/plugins/owlcarousel/owl.theme.default.min.css') }}">
+
  <!-- Daterangepikcer CSS -->
  <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
 

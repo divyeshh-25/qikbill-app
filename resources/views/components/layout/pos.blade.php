@@ -25,20 +25,7 @@
     <div id="global-loader">
         <div class="whirly-loader"> </div>
     </div>
-    <!-- Main Wrapper -->
-    <div class="main-wrapper">
-        
-        <x-layout.header />
-        <x-layout.sidebar />
-        <div class="page-wrapper">
-            {{ $slot }}
-            <div class="footer d-sm-flex align-items-center justify-content-between border-top bg-white p-3">
-                <p class="mb-0 text-gray-9">2014 - 2025 &copy; QikBill POS. All Right Reserved</p>
-                <p>Designed &amp; Developed by <a href="javascript:void(0);" class="text-primary">Divyesh</a></p>
-            </div>
-        </div>
-    </div>
-    <!-- /Main Wrapper -->
+    {{ $slot }}
     <x-layout.script />
 
     <x-layout.toastr />
@@ -47,4 +34,5 @@
 
     @stack('scripts')
 </body>
+
 </html>

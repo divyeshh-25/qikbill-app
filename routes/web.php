@@ -3,9 +3,11 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanySettingController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\POSController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use Termwind\Components\Raw;
 
@@ -35,6 +37,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
             function () {
                 Route::get('company-setting', [CompanySettingController::class, 'getCompanySetting'])->name('get-company-setting');
                 Route::put('update/{companySetting}',[CompanySettingController::class, 'update'])->name('company-update');
+                Route::get('profile',[AuthController::class,'profile'])->name('profile');
+                Route::put('profile/{user}',[AuthController::class,'profileUpdate'])->name('profile.update');
             }
         );
         Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
@@ -55,6 +59,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('/delete/{role}', [RoleController::class, 'destroy'])->name('delete');
             Route::get('/permissions/{role}', [RoleController::class, 'permissions'])->name('permissions');
             Route::post('/permissions/{role}', [RoleController::class, 'syncPermissions'])->name('sync-permissions');
+        });
+
+        Route::group(['prefix' => 'pos', 'as' => 'pos.'], function() {
+            Route::get('/',[POSController::class,'index'])->name('index');
         });
     });
 });

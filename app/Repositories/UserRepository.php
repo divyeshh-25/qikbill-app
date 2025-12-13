@@ -58,9 +58,10 @@ class UserRepository implements UserInterface
         }else{
             unset($data['image']);
         }
-        if($data['password'] == null){
+        if(!isset($data['password']) || $data['password'] == null){
             unset($data['password']);
         }
+        
         $updated = $user->update($data);
         if($updated){
             return $user;

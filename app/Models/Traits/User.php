@@ -25,7 +25,7 @@ trait User
         if ($this->attributes['image']) {
             return asset('storage/users/' . $this->attributes['image']);
         } else {
-            return null;
+            return asset('assets/img/users/default_user.jpg');
         }
     }
 }

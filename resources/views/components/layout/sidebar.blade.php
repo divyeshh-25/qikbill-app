@@ -131,7 +131,6 @@
                         <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="{{ route('admin.users.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="{{ route('admin.customers.index') }}" />
                         <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="{{ route('admin.roles.index') }}" />
-                        {{-- <x-layout.sidebar.item icon="ti ti-trash-x" label="Delete Account Request" link="delete-account.html" /> --}}
                     </ul>
                 </li>
 
@@ -140,26 +139,10 @@
                     <h6 class="submenu-hdr">General</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Profile" link="profile.html" />
+                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Profile" link="{{ route('admin.setting.profile') }}" />
                         <x-layout.sidebar.item icon="ti ti-settings" label="Setting" link="{{ route('admin.setting.get-company-setting') }}" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Reset Password" link="reset-password-2.html" />
-                        {{-- <x-layout.sidebar.item icon="ti ti-help-circle" label="FAQ" link="faq.html" /> --}}
                     </ul>
                 </li>
-
-                <!-- Authentication -->
-                {{-- <li class="submenu-open">
-                    <h6 class="submenu-hdr">Authentication</h6>
-
-                    <ul>
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Login" link="signin-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Register" link="register-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Forgot Password" link="forgot-password-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Email Verification" link="email-verification-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="2 Step Verification" link="two-step-verification-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Lock Screen" link="lock-screen.html" />
-                    </ul>
-                </li> --}}
 
             </ul>
 

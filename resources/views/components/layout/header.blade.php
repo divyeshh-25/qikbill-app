@@ -247,12 +247,6 @@
                     <i class="ti ti-maximize"></i>
                 </a>
             </li>
-            <li class="nav-item nav-item-box">
-                <a href="email.html">
-                    <i class="ti ti-mail"></i>
-                    <span class="badge rounded-pill">1</span>
-                </a>
-            </li>
             <!-- Notifications -->
             <li class="nav-item dropdown nav-item-box">
                 <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
@@ -334,30 +328,32 @@
             <!-- /Notifications -->
 
             <li class="nav-item nav-item-box">
-                <a href="general-settings.html"><i class="ti ti-settings"></i></a>
+                <a href="{{ route('admin.setting.get-company-setting') }}"><i class="ti ti-settings"></i></a>
             </li>
             <li class="nav-item dropdown has-arrow main-drop profile-nav">
                 <a href="javascript:void(0);" class="nav-link userset" data-bs-toggle="dropdown">
                     <span class="user-info p-0">
                         <span class="user-letter">
-                            <img src="{{ asset('assets/img/profiles/avator1.jpg') }}" alt="Img" class="img-fluid">
+                            <img src="{{ auth()->user()->profile_image_url }}" alt="Img" class="img-fluid">
                         </span>
                     </span>
                 </a>
                 <div class="dropdown-menu menu-drop-user">
                     <div class="profileset d-flex align-items-center">
                         <span class="user-img me-2">
-                            <img src="{{ asset('assets/img/profiles/avator1.jpg') }}" alt="Img">
+                            <img src="{{ auth()->user()->profile_image_url }}" alt="Img">
                         </span>
                         <div>
-                            <h6 class="fw-medium">John Smilga</h6>
+                            <h6 class="fw-medium">{{ auth()->user()->name }}</h6>
                             <p>Admin</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="profile.html"><i class="ti ti-user-circle me-2"></i>MyProfile</a>
-                    <a class="dropdown-item" href="sales-report.html"><i class="ti ti-file-text me-2"></i>Reports</a>
-                    <a class="dropdown-item" href="general-settings.html"><i
-                            class="ti ti-settings-2 me-2"></i>Settings</a>
+                    <a class="dropdown-item" href="{{ route('admin.setting.profile') }}">
+                        <i class="ti ti-user-circle me-2"></i>MyProfile
+                    </a>
+                    <a class="dropdown-item" href="{{ route('admin.setting.get-company-setting') }}">
+                        <i class="ti ti-settings-2 me-2"></i>Settings
+                    </a>
                     <hr class="my-2">
                     <a class="dropdown-item logout pb-0" href="{{ route('logout') }}">
                         <i class="ti ti-logout me-2"></i>Logout
@@ -372,9 +368,9 @@
             <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                 aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="general-settings.html">Settings</a>
-                <a class="dropdown-item" href="signin.html">Logout</a>
+                <a class="dropdown-item" href="{{ route('admin.setting.profile') }}">My Profile</a>
+                <a class="dropdown-item" href="{{ route('admin.setting.get-company-setting') }}">Settings</a>
+                <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
             </div>
         </div>
         <!-- /Mobile Menu -->
