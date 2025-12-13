@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\CustomerDataTable;
 use App\Helpers\Reply;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerRequest;
+use App\Http\Requests\Admin\CustomerRequest;
 use App\Repositories\Interfaces\CustomerRepositoryInterface;
 
 class CustomerController extends Controller

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductRequest;
+use App\Http\Requests\Admin\ProductRequest;
 use App\Services\ProductService;
 use App\Models\Category;
 

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\DataTables\CategoryDataTable;
 use App\Helpers\Reply;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\Admin\CategoryRequest;
 use App\Models\Category;
 use App\Services\CategoryService;
 use Exception;

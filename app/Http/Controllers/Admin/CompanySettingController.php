@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CompanySettingRequest;
+use App\Http\Requests\Admin\CompanySettingRequest;
 use App\Models\CompanySetting;
 use App\Services\CompanySettingService;
-use Illuminate\Http\Request;
 
 class CompanySettingController extends Controller
 {
