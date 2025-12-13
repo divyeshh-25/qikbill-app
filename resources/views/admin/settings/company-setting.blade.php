@@ -3,7 +3,6 @@
         <div class="content">
             <div class="card">
                 <div class="card-body">
-
                     <form id="companySettingForm"
                           action="{{ route('admin.setting.company-update', $companySetting->id) }}"
                           method="POST"

@@ -6,15 +6,17 @@ use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
-use App\Models\Category;
+use App\Services\CategoryService;
 
 class ProductController extends Controller
 {
     protected $service;
+    protected $categoryService;
 
-    public function __construct(ProductService $service)
+    public function __construct(ProductService $service,CategoryService $categoryService)
     {
         $this->service = $service;
+        $this->categoryService = $categoryService;
     }
 
     public function index(ProductDataTable $dataTable)
@@ -24,7 +26,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = $this->categoryService->getAllCategories();
         return view('admin.products.create', compact('categories'));
     }
 
@@ -32,13 +34,13 @@ class ProductController extends Controller
     {
         $validated = $request->validated();
         $this->service->store($validated);
-        return response()->json(['success' => true, 'message' => 'Product Created']);
+        return to_route('admin.products.index')->with('success','Product created successfully');
     }
 
     public function edit($id)
     {
         $product = $this->service->edit($id);
-        $categories = Category::all();
+        $categories = $this->categoryService->getAllCategories();
         return view('admin.products.edit', compact('product', 'categories'));
     }
 
@@ -46,7 +48,7 @@ class ProductController extends Controller
     {
         $validated = $request->validated();
         $this->service->update($id, $validated);
-        return response()->json(['success' => true, 'message' => 'Product Updated']);
+        return to_route('admin.products.index')->with('success','Product Updated successfully');
     }
 
     public function destroy($id)

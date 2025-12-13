@@ -13,7 +13,7 @@ class CategoryService
         $this->categoryRepo = $categoryRepo;
     }
 
-    public function getAllProducts()
+    public function getAllCategories()
     {
         return $this->categoryRepo->all();
     }

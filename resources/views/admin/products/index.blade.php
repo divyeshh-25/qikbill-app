@@ -23,9 +23,9 @@
             </ul>
 
             <div class="page-btn">
-                <button class="btn btn-primary" id="add-product">
+                <a class="btn btn-primary" href="{{ route('admin.products.create') }}" >
                     <i class="ti ti-circle-plus me-1"></i>Add Product
-                </button>
+                </a>
             </div>
         </div>
         <div class="card">
@@ -61,135 +61,6 @@
     @push('scripts')
         {{ $dataTable->scripts() }}
         <script>
-            const callEvents = () => {
-                const input = document.getElementById('productimageInput');
-                const profilePic = document.getElementById('productimage');
-                input.addEventListener('change', function() {
-                    const file = this.files[0];
-                    if (file) {
-                        if (file.size > 2 * 1024 * 1024) {
-                            alert('File size exceeds 2 MB');
-                            this.value = '';
-                            return;
-                        }
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            profilePic.style.backgroundImage =
-                                `url('${e.target.result}')`;
-                            profilePic.innerHTML =
-                                '';
-                            profilePic.style.backgroundSize = 'cover';
-                            profilePic.style.backgroundPosition =
-                                'center';
-                        }
-                        reader.readAsDataURL(file);
-                    }
-                });
-                if ($('.toggle-password').length > 0) {
-                    $(document).on('click', '.toggle-password', function() {
-                        var input = $(this).siblings('input');
-                        if (input.attr("type") == "password") {
-                            input.attr("type", "text");
-                            $(this).removeClass("ti-eye-off").addClass("ti-eye");
-                        } else {
-                            input.attr("type", "password");
-                            $(this).removeClass("ti-eye").addClass("ti-eye-off");
-                        }
-                    });
-                }
-            }
-            $(document).on('click', '#add-product', function() {
-                $.ajax({
-                    url: "{{ route('admin.products.create') }}",
-                    type: "GET",
-                    success: function(response) {
-                        openModal('Add Product', response, 'Save Product');
-                        callEvents();
-                    },
-                    error: function(xhr) {
-                        showToast('Error', 'Failed to load the form.', 'error');
-                    }
-                });
-            });
-            $(document).on('click', '.add-btn', function() {
-                let form = $("#addProductForm")[0];
-                let formData = new FormData(form);
-                $.ajax({
-                    url: "{{ route('admin.products.store') }}",
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        $(".error-span").text('');
-                            $('#data-table').DataTable().ajax.reload();
-                            closeModal();
-                            showToast('Success', response.message, 'success');
-                    },
-                    error: function(xhr) {
-                        $(".error-span").text('');
-                        if (xhr.status === 422) {
-                            let errors = xhr.responseJSON.errors;
-                            for (let field in errors) {
-                                $(`#err-${field}`).text(errors[field][0]).css('color',
-                                    'red');
-                            }
-                        } else {
-                            showToast('Error', 'An error occurred while saving the product.',
-                                'error');
-                        }
-                    }
-                });
-            });
-            $(document).on('click', '.edit-btn', function() {
-                let id = $(this).data('id');
-                let url = "{{ route('admin.products.edit', ':id') }}";
-                url = url.replace(':id', id);
-                $.ajax({
-                    url: url,
-                    type: "GET",
-                    success: function(response) {
-                        openModal('Edit Product', response, 'Update Product', true);
-                        callEvents();
-                    },
-                    error: function(xhr) {
-                        showToast('Error', 'Failed to load the form.', 'error');
-                    }
-                });
-            });
-            $(document).on('click', '.update-btn', function() {
-                let form = $("#editProductForm")[0];
-                let formData = new FormData(form);
-                let id = $("#id").val();
-                let url = "{{ route('admin.products.update', ':id') }}";
-                url = url.replace(':id', id);
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        $(".error-span").text('');
-                            $('#data-table').DataTable().ajax.reload();
-                            closeModal();
-                            showToast('Success', response.message, 'success');
-                    },
-                    error: function(xhr) {
-                        $(".error-span").text('');
-                        if (xhr.status === 422) {
-                            let errors = xhr.responseJSON.errors;
-                            for (let field in errors) {
-                                $(`#err-${field}`).text(errors[field][0]).css('color',
-                                    'red');
-                            }
-                        } else {
-                            showToast('Error', 'An error occurred while saving the product.',
-                                'error');
-                        }
-                    }
-                });
-            });
             $(document).on('click', '.delete-btn', function() {
                 let id = $(this).data('id');
                 deleteModal('Delete Product', 'Are you sure you want to delete product?');
