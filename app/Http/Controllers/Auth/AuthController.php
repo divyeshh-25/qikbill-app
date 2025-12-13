@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ProfileRequest;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\Tenant;
+use App\Models\User;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -71,5 +74,23 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login');
+    }
+
+    public function profile(Request $request)
+    {
+        $user = Auth::user();
+        return view('admin.settings.profile',compact('user'));
+    }
+
+    public function profileUpdate(User $user, ProfileRequest $request)
+    {
+        $data = $request->validated();
+        $userRepository = new UserRepository();
+        $user = $userRepository->update($user,$data);
+        if($user){
+            return redirect()->back()->with('success', 'Profile updated successfully');
+        }
+        return redirect()->back()->with('error', 'Something went wrong');
+        
     }
 }

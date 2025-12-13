@@ -26,9 +26,6 @@ return new class extends Migration
             $table->string('payment_status')->default('unpaid');
             $table->string('location')->nullable();
             $table->text('notes')->nullable();
-
-
-
             $table->timestamps();
         });
     }

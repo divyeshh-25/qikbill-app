@@ -97,29 +97,28 @@
             <ul>
 
                 <!-- Super Admin -->
-                <li class="submenu-open">
+                {{-- <li class="submenu-open">
                     <h6 class="submenu-hdr">Super Admin</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Dashboard" link="{{ route('super_admin.dashboard') }}" />
+                         <x-layout.sidebar.item icon="ti ti-user-edit" label="Dashboard" link="{{ route('super_admin.dashboard') }}" /> 
                         <x-layout.sidebar.item icon="ti ti-list-details" label="Companies" link="companies.html" />
                         <x-layout.sidebar.item icon="ti ti-stairs-up" label="Subscriptions" link="subscription.html" />
                         <x-layout.sidebar.item icon="ti ti-shopping-bag" label="Packages" link="packages.html" />
                         <x-layout.sidebar.item icon="ti ti-brand-apple-arcade" label="Domain" link="domain.html" />
                         <x-layout.sidebar.item icon="ti ti-carousel-vertical" label="Purchase Transaction" link="purchase-transaction.html" />
                     </ul>
-                </li>
+                </li> --}}
 
                 <!-- Admin -->
                 <li class="submenu-open">
                     <h6 class="submenu-hdr">Admin</h6>
-
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Products" link="product-list.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Create Product" link="add-product.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Category" link="category-list.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Sub Category" link="sub-categories.html" />
+                     <x-layout.sidebar.item icon="ti ti-layout-grid" label="Dashboard" link="{{ route('admin.dashboard') }}" /> 
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Products" link="{{ route('admin.products.index') }}" />
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Create Product" link="{{ route('admin.products.create') }}" />
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Category" link="{{ route('admin.categories.index') }}" />
+                        <x-layout.sidebar.item icon="ti ti-user-edit" label="Sub Category" link="{{ route('admin.categories.subcatgories') }}" />
                         <x-layout.sidebar.item icon="ti ti-user-edit" label="POS" link="pos.html" />
                     </ul>
                 </li>
@@ -129,10 +128,9 @@
                     <h6 class="submenu-hdr">User Management</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="users.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="customers.html" />
-                        <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="roles-permissions.html" />
-                        <x-layout.sidebar.item icon="ti ti-trash-x" label="Delete Account Request" link="delete-account.html" />
+                        <x-layout.sidebar.item icon="ti ti-shield-up" label="Users" link="{{ route('admin.users.index') }}" />
+                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Customers" link="{{ route('admin.customers.index') }}" />
+                        <x-layout.sidebar.item icon="ti ti-jump-rope" label="Roles & Permissions" link="{{ route('admin.roles.index') }}" />
                     </ul>
                 </li>
 
@@ -141,24 +139,8 @@
                     <h6 class="submenu-hdr">General</h6>
 
                     <ul>
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Profile" link="profile.html" />
-                        <x-layout.sidebar.item icon="ti ti-settings" label="Setting" link="settings.html" />
-                        <x-layout.sidebar.item icon="ti ti-help-circle" label="FAQ" link="faq.html" />
-                    </ul>
-                </li>
-
-                <!-- Authentication -->
-                <li class="submenu-open">
-                    <h6 class="submenu-hdr">Authentication</h6>
-
-                    <ul>
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Login" link="signin-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Register" link="register-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Forgot Password" link="forgot-password-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Reset Password" link="reset-password-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Email Verification" link="email-verification-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="2 Step Verification" link="two-step-verification-2.html" />
-                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Lock Screen" link="lock-screen.html" />
+                        <x-layout.sidebar.item icon="ti ti-user-circle" label="Profile" link="{{ route('admin.setting.profile') }}" />
+                        <x-layout.sidebar.item icon="ti ti-settings" label="Setting" link="{{ route('admin.setting.get-company-setting') }}" />
                     </ul>
                 </li>
 

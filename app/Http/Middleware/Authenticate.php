@@ -23,6 +23,6 @@ class Authenticate extends Middleware
         }
 
         // For normal users: prefer named route when available
-        return Route::has('login') ? route('login') : url('/login');
+        return Route::has('login') ? route('login') : url('/');
     }
 }

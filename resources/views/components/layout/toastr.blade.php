@@ -4,11 +4,13 @@
             <strong class="me-auto" id="toastHeader">Toast</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
+        <p class="my-1" style="border-color: rgba(255,255,255,0.5);"></p> <!-- line after header -->
         <div class="toast-body" id="toastMessage">
-            Your,toast message here.
+            Your toast message here.
         </div>
     </div>
 </div>
+
 <script>
     const showToast = (header, message, type = 'success') => {
         const toastContainer = document.getElementById('toastContainer');
@@ -19,6 +21,7 @@
         toastHeader.textContent = header;
         toastMessage.textContent = message;
         toastEl.classList.remove('bg-success', 'bg-danger', 'bg-warning', 'bg-info');
+        toastHeaderContainer.classList.remove('bg-success', 'bg-danger', 'bg-warning', 'bg-info');
         switch (type) {
             case 'success':
                 toastEl.classList.add('bg-success', 'text-fixed-white');
