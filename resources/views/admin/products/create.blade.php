@@ -1,6 +1,24 @@
-<form action="{{ route('admin.products.store') }}" method="POST" id="addProductForm">
+<form action="{{ route('admin.products.store') }}" method="POST" id="addProductForm" enctype="multipart/form-data">
     @csrf
 
+    <div class="col-lg-12">
+        <div class="new-employee-field">
+            <div class="profile-pic-upload mb-2">
+                <div class="profile-pic" id="productimage">
+                    <span><i class="ti ti-mood-plus"></i>Add Image</span>
+                </div>
+                <div class="mb-0">
+                    <div class="image-upload mb-0">
+                        <input type="file" name="image" id="productimageInput" accept=".png, .jpg, .jpeg">
+                        <div class="image-uploads">
+                            <h4>Upload Image</h4>
+                        </div>
+                    </div>
+                    <p class="fs-13 mt-2">JPEG, JPG, PNG up to 2 MB</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="mb-3">
         <label class="form-label">SKU <span class="text-danger">*</span></label>
         <input type="text" class="form-control" name="sku" required>

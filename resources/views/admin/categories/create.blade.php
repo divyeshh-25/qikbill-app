@@ -29,12 +29,12 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Status<span class="text-danger ms-1">*</span></label>
-        <select class="form-control" name="status" required>
-            <option value="published" selected>Published</option>
-            <option value="draft">Draft</option>
-        </select>
-        <span class="text-sm text-danger" id="err-status"></span>
-
+        <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
+            <span class="status-label">Status</span>
+            <input type="hidden" name="status" value="0">
+            <input type="checkbox" id="status" class="check" name="status" value="1">
+            <label for="status" class="checktoggle"></label>
+        </div>
+        <span class="error-span" id="err-status"></span>
     </div>
 </form>

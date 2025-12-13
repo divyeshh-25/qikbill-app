@@ -30,7 +30,6 @@ class CustomerController extends Controller
     public function store(CustomerRequest $request)
     {
         $this->customers->create($request->validated());
-
         return Reply::success('Customer created successfully');
     }
 
@@ -43,14 +42,12 @@ class CustomerController extends Controller
     public function update(CustomerRequest $request, $id)
     {
         $this->customers->update($id, $request->validated());
-
         return Reply::success('Customer updated successfully');
     }
 
     public function destroy($id)
     {
         $this->customers->delete($id);
-
         return Reply::success('Customer deleted successfully');;
     }
 }

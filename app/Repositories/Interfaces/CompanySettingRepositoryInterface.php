@@ -6,6 +6,7 @@ use App\Models\CompanySetting;
 
 interface CompanySettingRepositoryInterface
 {
-    public function get();
-    public function updateOrCreate(array $data);
+    public function firstOrCreate(array $attributes, array $values): CompanySetting;
+    public function find(int $id): ?CompanySetting;
+    public function update(CompanySetting $setting, array $data): CompanySetting;
 }

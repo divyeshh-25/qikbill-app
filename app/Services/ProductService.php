@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\Interfaces\ProductRepositoryInterface;
+use Illuminate\Support\Str;
 
 class ProductService
 {
@@ -20,6 +21,12 @@ class ProductService
 
     public function store(array $data)
     {
+        if($data['image']){
+            $image = $data['image'];
+            $imageName = Str::slug($data['name']).'-'.time().'.'.$image->getClientOriginalExtension();
+            $image->storeAs('products', $imageName, 'public');
+            $data['image'] = $imageName;
+        }
         return $this->repo->create($data);
     }
 
@@ -30,6 +37,14 @@ class ProductService
 
     public function update($id, array $data)
     {
+        if(isset($data['image']) && $data['image']){
+            $image = $data['image'];
+            $imageName = Str::slug($data['name']).'-'.time().'.'.$image->getClientOriginalExtension();
+            $image->storeAs('products', $imageName, 'public');
+            $data['image'] = $imageName;
+        }else{
+            unset($data['image']);
+        }
         return $this->repo->update($id, $data);
     }
 

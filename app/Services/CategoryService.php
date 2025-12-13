@@ -23,18 +23,22 @@ class CategoryService
         return $this->categoryRepo->create($data);
     }
 
-    public function updateProduct($id, array $data)
+    public function updateProduct($category, array $data)
     {
-        return $this->categoryRepo->update($id, $data);
+        return $this->categoryRepo->update($category, $data);
     }
 
-    public function deleteProduct($id)
+    public function deleteProduct($category)
     {
-        return $this->categoryRepo->delete($id);
+        return $this->categoryRepo->delete($category);
     }
 
     public function getProductsWithFields(array $fields)
     {
         return $this->categoryRepo->getWithFields($fields);
+    }
+
+    public function getParentCategory(){
+       return $this->categoryRepo->getParentCategory();
     }
 }

@@ -13,6 +13,17 @@ trait Category
             return '<span class="badge bg-danger fw-medium fs-10">Draft</span>';
         }
     }
+
+
+    public function setStatusAttribute($value)
+    {
+        if($value === true || $value === 'on' || $value == 1){
+            $this->attributes['status'] = 1;
+        }else{
+            $this->attributes['status'] = 0;
+        }
+    }
+
     public function parent(){
             return $this->belongsTo(CategoryModel::class);
     }

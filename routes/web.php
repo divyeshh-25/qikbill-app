@@ -34,7 +34,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ],
             function () {
                 Route::get('company-setting', [CompanySettingController::class, 'getCompanySetting'])->name('get-company-setting');
-                Route::put('update/{companysetting}',[CompanySettingController::class, 'update'])->name('company-update');
+                Route::put('update/{companySetting}',[CompanySettingController::class, 'update'])->name('company-update');
             }
         );
         Route::group(['prefix' => 'users', 'as' => 'users.'], function () {

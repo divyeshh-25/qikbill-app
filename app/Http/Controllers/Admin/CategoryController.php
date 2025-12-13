@@ -32,7 +32,7 @@ class CategoryController extends Controller
         $categories = null;
 
         if ($type === 'subcategory') {
-            $categories = Category::whereNull('parent_id')->get();
+            $categories = $this->categoryService->getParentCategory();
         }
 
         return view('admin.categories.create', compact('type', 'categories'));
@@ -59,30 +59,25 @@ class CategoryController extends Controller
     {
         $type = $category->parent_id == null ? '' : 'subcategory';
         $categories = null;
-
         if ($type === 'subcategory') {
-            $categories = Category::whereNull('parent_id')->get();
+            $categories =$this->categoryService->getParentCategory();
         }
-
         return view('admin.categories.edit', compact('category', 'type', 'categories'));
     }
 
-     /**
-     * Update
-     */
-  /**
+    /**
      * Update category
      */
-    public function update(CategoryRequest $request, String $id)
+    public function update(CategoryRequest $request, Category $category)
     {
         try {
             $data = $request->validated();
-            $this->categoryService->updateProduct($id, $data);
+            $this->categoryService->updateProduct($category, $data);
 
             return response()->json([
                 'status' => 'success',
                 'message' => 'Category updated successfully'
-            ]);
+            ],201);
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
@@ -94,15 +89,15 @@ class CategoryController extends Controller
     /**
      * Delete category
      */
-    public function destroy(String $id)
+    public function destroy(Category $category)
     {
         try {
-            $this->categoryService->deleteProduct($id);
+            $this->categoryService->deleteProduct($category);
 
             return response()->json([
                 'status' => 'success',
                 'message' => 'Category deleted successfully'
-            ]);
+            ],201);
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',

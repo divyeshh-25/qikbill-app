@@ -39,4 +39,13 @@ trait Product
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function getProductImageUrlAttribute()
+    {
+        if ($this->attributes['image']) {
+            return asset('storage/products/' . $this->attributes['image']);
+        } else {
+            return null;
+        }
+    }
 }

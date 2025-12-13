@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Repositories\CategoryRepository;
+use App\Repositories\CompanySettingRepository;
 use App\Repositories\CustomerRepository;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\CompanySettingRepositoryInterface;
 use App\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Repositories\ProductRepository;
@@ -43,6 +45,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             RoleInterface::class,
             RoleRepository::class
+        );
+
+        $this->app->bind(
+            CompanySettingRepositoryInterface::class,
+            CompanySettingRepository::class
         );
     }
 

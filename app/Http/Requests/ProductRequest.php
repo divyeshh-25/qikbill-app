@@ -30,6 +30,7 @@ class ProductRequest extends FormRequest
             'cost_price'     => ['required', 'numeric', 'min:0'],
             'stock_quantity' => ['required', 'integer', 'min:0'],
             'description'    => ['required', 'string'],
+            'image' => 'nullable'
         ];
 
         if ($this->isMethod('post')) {

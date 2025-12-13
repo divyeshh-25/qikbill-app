@@ -30,7 +30,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $validated = $request->validate();
+        $validated = $request->validated();
         $this->service->store($validated);
         return response()->json(['success' => true, 'message' => 'Product Created']);
     }
@@ -44,7 +44,7 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
-        $validated = $request->validate();
+        $validated = $request->validated();
         $this->service->update($id, $validated);
         return response()->json(['success' => true, 'message' => 'Product Updated']);
     }

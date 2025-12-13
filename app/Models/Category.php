@@ -18,6 +18,7 @@ class Category extends Model
     protected function casts(): array
     {
         return [
+            'status' => 'boolean',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
@@ -25,13 +26,13 @@ class Category extends Model
 
     protected static function booted()
     {
-        static::creating(function ($item) {
-            if (empty($item->slug)) {
-                $item->slug = Str::slug($item->name);
+        static::creating(function ($category) {
+            if (empty($category->slug)) {
+                $category->slug = Str::slug($category->name);
             }
         });
-        static::updating(function ($item) {
-            $item->slug = Str::slug($item->name);
+        static::updating(function ($category) {
+            $category->slug = Str::slug($category->name);
         });
     }
 }

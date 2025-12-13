@@ -22,21 +22,24 @@ class CategoryRepository implements CategoryRepositoryInterface
         return Category::create($data);
     }
 
-    public function update($id, array $data)
+    public function update($category, array $data)
     {
-        $category = $this->find($id);
         $category->update($data);
         return $category;
     }
 
-    public function delete($id)
+    public function delete($category)
     {
-        $category = $this->find($id);
         return $category->delete();
     }
 
      public function getWithFields(array $fields)
      {
         return Category::where('status','1')->select($fields)->get();
+     }
+
+     public function getParentCategory()
+     {
+        return Category::whereNull('parent_id')->get();
      }
 }

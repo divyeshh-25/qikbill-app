@@ -32,7 +32,7 @@ class UserRepository implements UserInterface
             $image = $data['image'];
             $imageName = Str::slug($data['name']).'-'.time().'.'.$image->getClientOriginalExtension();
             $image->storeAs('users', $imageName, 'public');
-            $data['image'] = $imageName; 
+            $data['image'] = $imageName;
         }
 
         if(!isset($data['tenant_id'])){
@@ -51,7 +51,7 @@ class UserRepository implements UserInterface
             $image = $data['image'];
             $imageName = Str::slug($data['name']).'-'.time().'.'.$image->getClientOriginalExtension();
             $image->storeAs('users', $imageName, 'public');
-            $data['image'] = $imageName; 
+            $data['image'] = $imageName;
         }else{
             unset($data['image']);
         }

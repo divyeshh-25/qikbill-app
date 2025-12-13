@@ -10,4 +10,5 @@ interface CategoryRepositoryInterface
     public function update($id, array $data);
     public function delete($id);
     public function getWithFields(array $fields);
+    public function getParentCategory();
 }

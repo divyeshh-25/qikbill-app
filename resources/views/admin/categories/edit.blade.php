@@ -29,13 +29,15 @@
         <span class="text-sm text-danger" id="err-description"></span>
     </div>
 
-    <div class="mb-3">
-        <label class="form-label">Status <span class="text-danger ms-1">*</span></label>
-        <select class="form-control" name="status" required>
-            <option value="published" {{ $category->status == 'published' ? 'selected' : '' }}>Published</option>
-            <option value="draft" {{ $category->status == 'draft' ? 'selected' : '' }}>Draft</option>
-        </select>
-        <span class="text-sm text-danger" id="err-status"></span>
+    <div class="col-lg-12">
+        <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
+            <span class="status-label">Status</span>
+            <input type="hidden" name="status" value="0">
+            <input type="checkbox" id="status" class="check" name="status" value="1"
+                {{ old('status', $category->getRawOriginal('status')) ? 'checked' : '' }}>
+            <label for="status" class="checktoggle"></label>
+        </div>
+        <span class="error-span" id="err-status"></span>
     </div>
 
 </form>

@@ -31,6 +31,9 @@ class ProductRepository implements ProductRepositoryInterface
     public function delete($id)
     {
         $product = $this->find($id);
+        if($product->image){
+            unlink('storage/products/'.$product->image);
+        }
         return $product->delete();
     }
 }

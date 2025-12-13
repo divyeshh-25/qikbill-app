@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class CategoryRequest extends FormRequest
+class CompanySettingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +21,14 @@ class CategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        $categoryId = $this->route('category')?->id;
-
         return [
-            'name' => [
-                'required',
-                Rule::unique('categories', 'name')->ignore($categoryId),
-            ],
-            'description' => 'required|string',
-            'status' => ['required', 'integer', Rule::in([0, 1])],
-            'parent_id' => 'nullable|exists:categories,id',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'nullable|string|max:15',
+            'address' => 'required|string',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'favicon' => 'nullable|image|mimes:jpg,png,jpeg,ico|max:2048',
+            'show_logo_or_name' => 'required|in:logo,name',
         ];
-
     }
 }

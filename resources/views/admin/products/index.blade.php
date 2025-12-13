@@ -61,12 +61,50 @@
     @push('scripts')
         {{ $dataTable->scripts() }}
         <script>
+            const callEvents = () => {
+                const input = document.getElementById('productimageInput');
+                const profilePic = document.getElementById('productimage');
+                input.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        if (file.size > 2 * 1024 * 1024) {
+                            alert('File size exceeds 2 MB');
+                            this.value = '';
+                            return;
+                        }
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            profilePic.style.backgroundImage =
+                                `url('${e.target.result}')`;
+                            profilePic.innerHTML =
+                                '';
+                            profilePic.style.backgroundSize = 'cover';
+                            profilePic.style.backgroundPosition =
+                                'center';
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+                if ($('.toggle-password').length > 0) {
+                    $(document).on('click', '.toggle-password', function() {
+                        var input = $(this).siblings('input');
+                        if (input.attr("type") == "password") {
+                            input.attr("type", "text");
+                            $(this).removeClass("ti-eye-off").addClass("ti-eye");
+                        } else {
+                            input.attr("type", "password");
+                            $(this).removeClass("ti-eye").addClass("ti-eye-off");
+                        }
+                    });
+                }
+            }
             $(document).on('click', '#add-product', function() {
                 $.ajax({
                     url: "{{ route('admin.products.create') }}",
                     type: "GET",
                     success: function(response) {
                         openModal('Add Product', response, 'Save Product');
+                        callEvents();
                     },
                     error: function(xhr) {
                         showToast('Error', 'Failed to load the form.', 'error');
@@ -87,7 +125,6 @@
                             $('#data-table').DataTable().ajax.reload();
                             closeModal();
                             showToast('Success', response.message, 'success');
-
                     },
                     error: function(xhr) {
                         $(".error-span").text('');
@@ -113,6 +150,7 @@
                     type: "GET",
                     success: function(response) {
                         openModal('Edit Product', response, 'Update Product', true);
+                        callEvents();
                     },
                     error: function(xhr) {
                         showToast('Error', 'Failed to load the form.', 'error');

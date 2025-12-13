@@ -7,15 +7,19 @@ use App\Repositories\Interfaces\CompanySettingRepositoryInterface;
 
 class CompanySettingRepository implements CompanySettingRepositoryInterface
 {
-    public function get()
+    public function firstOrCreate(array $attributes, array $values): CompanySetting
     {
-        return CompanySetting::first();
+        return CompanySetting::firstOrCreate($attributes, $values);
     }
 
-    public function updateOrCreate(array $data)
+    public function find(int $id): ?CompanySetting
     {
-        return CompanySetting::updateOrCreate(
-            $data
-        );
+        return CompanySetting::findOrFail($id);
+    }
+
+    public function update(CompanySetting $setting, array $data): CompanySetting
+    {
+        $setting->update($data);
+        return $setting;
     }
 }
