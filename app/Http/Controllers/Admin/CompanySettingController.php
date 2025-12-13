@@ -29,8 +29,9 @@ class CompanySettingController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'nullable|email',
-            'address' => 'nullable|string',
+            'email' => 'required|email',
+            'address' => 'required|string',
+            'phone' => 'required',
             'logo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
             'favicon' => 'nullable|image|mimes:jpg,png,jpeg,ico|max:2048',
             'show_logo_or_name' => 'required|in:logo,name',
@@ -56,6 +57,7 @@ class CompanySettingController extends Controller
 
         $setting->name = $request->name;
         $setting->email = $request->email;
+        $setting->phone = $request->phone;
         $setting->address = $request->address;
         $setting->show_logo_or_name = $request->show_logo_or_name;
 

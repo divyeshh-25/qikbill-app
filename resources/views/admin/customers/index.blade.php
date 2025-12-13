@@ -32,7 +32,17 @@
         <div class="card">
 
             <div class="card-header d-flex align-items-center justify-content-between flex-wrap row-gap-3">
-                <div class="search-set"></div>
+                <div class="search-set">
+                    <div class="search-input">
+                        <span class="btn-searchset"><i class="ti ti-search fs-14 feather-search"></i></span>
+                        <div id="data-table-search" class="dataTables_filter">
+                            <label>
+                                <input type="search" class="form-control form-control-sm" placeholder="Search"
+                                    id="custom-search">
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="d-flex table-dropdown my-xl-auto right-content align-items-center flex-wrap row-gap-3">
                     <div class="dropdown">
@@ -67,7 +77,7 @@
                         url:url,
                         type: "GET",
                         success: function(response) {
-                            openModal('Add Category', response, 'Save Category');
+                            openModal('Add Customer', response, 'Save Customer');
                         },
                         error: function(xhr) {
                             showToast('Error', 'Failed to load the form.', 'error');
@@ -98,7 +108,7 @@
                                         'red');
                                 }
                             } else {
-                                showToast('Error', 'An error occurred while saving the user.',
+                                showToast('Error', 'An error occurred while saving the customer.',
                                     'error');
                             }
                         }
@@ -112,7 +122,7 @@
                         url: url,
                         type: "GET",
                         success: function(response) {
-                            openModal('Edit User', response, 'Update User', true);
+                            openModal('Edit Customer', response, 'Update Customer', true);
                         },
                         error: function(xhr) {
                             showToast('Error', 'Failed to load the form.', 'error');
@@ -146,7 +156,7 @@
                                         'red');
                                 }
                             } else {
-                                showToast('Error', 'An error occurred while saving the user.',
+                                showToast('Error', 'An error occurred while saving the customer.',
                                     'error');
                             }
                         }

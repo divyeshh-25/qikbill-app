@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('tenant_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->text('address')->nullable();
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();

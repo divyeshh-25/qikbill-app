@@ -30,7 +30,9 @@
         </div>
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between flex-wrap row-gap-3">
-                <div class="search-set"></div>
+                <div class="search-set">
+
+                </div>
 
                 <div class="d-flex table-dropdown my-xl-auto right-content align-items-center flex-wrap row-gap-3">
                     <div class="dropdown">
@@ -96,7 +98,7 @@
                                     'red');
                             }
                         } else {
-                            showToast('Error', 'An error occurred while saving the user.',
+                            showToast('Error', 'An error occurred while saving the product.',
                                 'error');
                         }
                     }
@@ -110,7 +112,7 @@
                     url: url,
                     type: "GET",
                     success: function(response) {
-                        openModal('Edit User', response, 'Update User', true);
+                        openModal('Edit Product', response, 'Update Product', true);
                     },
                     error: function(xhr) {
                         showToast('Error', 'Failed to load the form.', 'error');
@@ -144,7 +146,7 @@
                                     'red');
                             }
                         } else {
-                            showToast('Error', 'An error occurred while saving the user.',
+                            showToast('Error', 'An error occurred while saving the product.',
                                 'error');
                         }
                     }

@@ -40,7 +40,7 @@
                                 'red');
                         }
                     } else {
-                        showToast('Error', 'An error occurred while saving the user.',
+                        showToast('Error', 'An error occurred while saving the Category.',
                             'error');
                     }
                 }
@@ -54,7 +54,7 @@
                 url: url,
                 type: "GET",
                 success: function(response) {
-                    openModal('Edit User', response, 'Update User', true);
+                    openModal('Edit Category', response, 'Update Category', true);
                     callEvents();
                 },
                 error: function(xhr) {
@@ -89,7 +89,7 @@
                                 'red');
                         }
                     } else {
-                        showToast('Error', 'An error occurred while saving the user.',
+                        showToast('Error', 'An error occurred while saving the category.',
                             'error');
                     }
                 }

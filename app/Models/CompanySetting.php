@@ -13,6 +13,7 @@ class CompanySetting extends Model
         'address',
         'logo',
         'favicon',
+        'phone',
         'show_logo_or_name'
     ];
 }

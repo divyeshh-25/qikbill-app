@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -28,20 +28,10 @@ class ProductController extends Controller
         return view('admin.products.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $validated = $request->validate([
-            'sku' => 'required|unique:products',
-            'name' => 'required',
-            'category_id' => 'required|exists:categories,id',
-            'price' => 'required|numeric',
-            'cost_price' => 'required|numeric',
-            'stock_quantity' => 'required|integer',
-            'description' => 'required'
-        ]);
-
+        $validated = $request->validate();
         $this->service->store($validated);
-
         return response()->json(['success' => true, 'message' => 'Product Created']);
     }
 
@@ -49,23 +39,13 @@ class ProductController extends Controller
     {
         $product = $this->service->edit($id);
         $categories = Category::all();
-
         return view('admin.products.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $validated = $request->validate([
-            'sku' => 'required|unique:products,sku,' . $id,
-            'name' => 'required',
-            'category_id' => 'nullable|exists:categories,id',
-            'price' => 'required|numeric',
-            'cost_price' => 'required|numeric',
-            'stock_quantity' => 'required|integer',
-        ]);
-
+        $validated = $request->validate();
         $this->service->update($id, $validated);
-
         return response()->json(['success' => true, 'message' => 'Product Updated']);
     }
 

@@ -47,15 +47,31 @@ class CustomerDataTable extends DataTable
             ->minifiedAjax()
             ->orderBy(1)
             ->selectStyleSingle()
-            ->buttons([
-                Button::make('excel'),
-                Button::make('csv'),
-                Button::make('pdf'),
-                Button::make('print'),
-                Button::make('reset'),
-                Button::make('reload')
-            ]);
-    }
+            ->parameters([
+                'initComplete' => 'function () {
+                    var table = this.api();
+                    $("#custom-search").on("input", function() {
+                        table.search(this.value).draw();
+                    });
+                }',
+                'processing' => false,
+                'dom' =>
+                'Brt' .
+                    '<"row d-flex justify-content-between align-items-center"
+                        <"col-md-6 d-flex align-items-center"l>
+                        <"col-md-6 d-flex justify-content-end"p>
+                    >',
+                'footerCallback' => false,
+                'language' => [
+                    'paginate' => [
+                        'next' => '<i class="fa fa-angle-right"></i>',
+                        'previous' => '<i class="fa fa-angle-left"></i>'
+                    ]
+                ],
+            ])
+            ->responsive(true)
+            ->autoWidth(false)
+            ->setTableHeadClass('thead-light');    }
 
     /**
      * Get the dataTable columns definition.

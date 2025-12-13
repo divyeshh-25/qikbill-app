@@ -62,7 +62,8 @@ class ProductDataTable extends DataTable
                 ],
             ])
             ->responsive(true)
-            ->autoWidth(false);
+            ->autoWidth(false)
+            ->setTableHeadClass('thead-light');
     }
 
     public function getColumns(): array
