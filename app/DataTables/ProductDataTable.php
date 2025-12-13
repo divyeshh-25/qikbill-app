@@ -17,10 +17,10 @@ class ProductDataTable extends DataTable
                 return $row->category?->name ?? '<span class="text-muted">No Category</span>';
             })
             ->addColumn('status', function ($row) {
-                return $row->statusBadge;
+                return $row->status;
             })
             ->addColumn('action', function ($row) {
-                return $row->actions(false,true,true);
+                return $row->action;
             })
             ->rawColumns(['status', 'action', 'category']);
     }

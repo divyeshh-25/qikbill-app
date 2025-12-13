@@ -14,7 +14,6 @@ trait Category
         }
     }
 
-
     public function setStatusAttribute($value)
     {
         if($value === true || $value === 'on' || $value == 1){
@@ -25,6 +24,10 @@ trait Category
     }
 
     public function parent(){
-            return $this->belongsTo(CategoryModel::class);
+        return $this->belongsTo(CategoryModel::class);
+    }
+
+    public function children(){
+        return $this->belongsTo(CategoryModel::class);
     }
 }

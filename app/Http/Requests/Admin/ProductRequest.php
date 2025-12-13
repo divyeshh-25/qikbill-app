@@ -30,18 +30,20 @@ class ProductRequest extends FormRequest
             'cost_price'     => ['required', 'numeric', 'min:0'],
             'stock_quantity' => ['required', 'integer', 'min:0'],
             'description'    => ['required', 'string'],
-            'image' => 'nullable'
+            'status' => ['required']
         ];
 
         if ($this->isMethod('post')) {
             $rules['sku'][]  = Rule::unique('products', 'sku');
             $rules['name'][] = Rule::unique('products', 'name');
+            $rules['image'][] = ['required'];
         }
 
         if ($this->isMethod('put') || $this->isMethod('patch')) {
             $productId = $this->route('product');
             $rules['sku'][]  = Rule::unique('products', 'sku')->ignore($productId);
             $rules['name'][] = Rule::unique('products', 'name')->ignore($productId);
+            $rules['image'][] = ['nullable'];
         }
 
         return $rules;
