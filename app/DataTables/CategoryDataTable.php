@@ -33,6 +33,9 @@ class CategoryDataTable extends DataTable
             ->editColumn('parent_id', function ($row) {
                 return $row->parent ? $row->parent->name : 'N/A';
             })
+            ->editColumn('description',function($row){
+                return $row->description ? $row->description : "N/A";
+            })
             ->setRowId('id')
             ->rawColumns(['action', 'status']);
     }

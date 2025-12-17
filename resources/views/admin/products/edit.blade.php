@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">Category</label>
+                            <label class="form-label">Category <span class="text-danger">*</span></label>
                             <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
                                 <option value="">Select Category</option>
                                 @foreach ($categories as $cat)

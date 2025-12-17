@@ -23,7 +23,7 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Description<span class="text-danger ms-1">*</span></label>
+        <label class="form-label">Description</label>
         <textarea class="form-control" name="description" required></textarea>
         <span class="text-sm text-danger" id="err-description"></span>
     </div>
@@ -32,7 +32,7 @@
         <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
             <span class="status-label">Status</span>
             <input type="hidden" name="status" value="0">
-            <input type="checkbox" id="status" class="check" name="status" value="1">
+            <input type="checkbox" id="status" class="check" name="status" value="1" checked>
             <label for="status" class="checktoggle"></label>
         </div>
         <span class="error-span" id="err-status"></span>

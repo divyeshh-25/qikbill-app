@@ -38,23 +38,7 @@
                     {{-- Product Details --}}
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">SKU <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control @error('sku') is-invalid @enderror" name="sku"
-                                value="{{ old('sku') }}">
-                            @error('sku')
-                                <span class="text-danger fs-12">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">Product Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}">
-                            @error('name')
-                                <span class="text-danger fs-12">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">Category</label>
+                            <label class="form-label">Category <span class="text-danger">*</span></label>
                             <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
                                 <option value="">Select Category</option>
                                 @foreach ($categories as $cat)
@@ -68,6 +52,24 @@
                                 <span class="text-danger fs-12">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Product Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                name="name" value="{{ old('name') }}">
+                            @error('name')
+                                <span class="text-danger fs-12">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">SKU <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('sku') is-invalid @enderror" name="sku"
+                                value="{{ old('sku') }}">
+                            @error('sku')
+                                <span class="text-danger fs-12">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Price <span class="text-danger">*</span></label>
                             <input type="number" step="0.01"

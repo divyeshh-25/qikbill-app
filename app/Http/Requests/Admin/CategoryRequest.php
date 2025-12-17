@@ -29,7 +29,7 @@ class CategoryRequest extends FormRequest
                 'required',
                 Rule::unique('categories', 'name')->ignore($categoryId),
             ],
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'status' => ['required', 'integer', Rule::in([0, 1])],
             'parent_id' => 'nullable|exists:categories,id',
         ];

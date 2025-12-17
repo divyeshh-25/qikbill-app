@@ -24,7 +24,7 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Description <span class="text-danger ms-1">*</span></label>
+        <label class="form-label">Description </label>
         <textarea class="form-control" name="description" required>{{ old('description', $category->description) }}</textarea>
         <span class="text-sm text-danger" id="err-description"></span>
     </div>
