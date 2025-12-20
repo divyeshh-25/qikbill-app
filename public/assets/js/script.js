@@ -547,19 +547,7 @@ $(document).ready(function(){
 	$(document).on("click",".productset",function () {
 		$(this).toggleClass("active");
 	});
-	$(document).on("click",".product-info",function () {
-		$(this).toggleClass("active");
-		if ($(".product-info.active").length > 0) {
-			// If "active", hide .empty-cart and show .product-list
-			$('.product-wrap .empty-cart').hide();
-			$('.product-wrap .product-list').show();
-		} else {
-			// If not "active", reverse the behavior
-			$('.product-wrap .empty-cart').css('display', 'flex');
-			$('.product-wrap .product-list').css('display', 'none');
-		}
 	
-	});
 	$(document).on("click",".layout-box",function () {
 		$('.layout-hide-box').toggleClass("layout-show-box");
 	});

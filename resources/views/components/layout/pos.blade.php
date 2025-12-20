@@ -28,6 +28,7 @@
     {{ $slot }}
     <x-layout.script />
 
+
     <x-layout.toastr />
 
     <x-layout.modal />

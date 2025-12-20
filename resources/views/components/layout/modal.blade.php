@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="modal">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" id="modal-size">
         <div class="modal-content">
             <div class="page-wrapper-new p-0">
                 <div class="content">
@@ -56,9 +56,19 @@
 <!-- /Delete Modal -->
 
 <script>
-    const openModal = (title, bodyContent, btnTitle = 'Save', isEdit = false) => {
+    const openModal = (title, bodyContent, btnTitle = 'Save', isEdit = false, size="") => {
         document.getElementById('modal-title').innerHTML = title;
         document.getElementById('modal-body').innerHTML = bodyContent;
+        document.getElementById('modal-body').innerHTML = bodyContent;
+        let modalSize = document.getElementById('modal-size');
+        modalSize.classList.forEach(className => {
+            if (className !== 'modal-dialog' && className !== 'modal-dialog-centered') {
+                modalSize.classList.remove(className);
+            }
+        });
+        if(size){
+            document.getElementById('modal-size').classList.add(size);
+        }
         const modalBtn = document.getElementById('modal-submit-btn');
         modalBtn.textContent = btnTitle;
         modalBtn.classList.remove('add-btn', 'update-btn');

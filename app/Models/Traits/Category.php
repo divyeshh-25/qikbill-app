@@ -3,6 +3,8 @@
 namespace App\Models\Traits;
 
 use App\Models\Category as CategoryModel;
+use App\Models\Product;
+
 trait Category
 {
     public function getStatusBadgeAttribute()
@@ -29,5 +31,9 @@ trait Category
 
     public function children(){
         return $this->belongsTo(CategoryModel::class);
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
     }
 }

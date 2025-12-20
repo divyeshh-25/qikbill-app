@@ -27,9 +27,12 @@
 
         <!-- Search -->
         <li class="nav-item time-nav">
-            <span class="bg-teal text-white d-inline-flex align-items-center"><img
-                    src="{{ asset('assets/img/icons/clock-icon.svg') }}" alt="img" class="me-2">09:25:32</span>
+            <span class="bg-teal text-white d-inline-flex align-items-center p-1">
+                <img src="{{ asset('assets/img/icons/clock-icon.svg') }}" alt="img" class="me-2">
+                <span id="live-time" class="p-1"></span>
+            </span>
         </li>
+
         <!-- /Search -->
 
         <li class="nav-item pos-nav">
@@ -39,35 +42,38 @@
         </li>
 
         <li class="nav-item nav-item-box">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#calculator"
-                class="bg-orange border-orange text-white"><i class="ti ti-calculator"></i></a>
+            <a href="javascript:void(0);" id="calculator" class="bg-orange border-orange text-white">
+                <i class="ti ti-calculator"></i>
+            </a>
         </li>
         <li class="nav-item nav-item-box">
-            <a href="javascript:void(0);" id="btnFullscreen" data-bs-toggle="tooltip" data-bs-placement="top"
+            <a href="javascript:void(0);" id="btnFullscreen" data-bs-toggle="tooltip" data-bs-placement="bottom"
                 data-bs-title="Maximize">
                 <i class="ti ti-maximize"></i>
             </a>
         </li>
-        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="top"
+        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="bottom"
             data-bs-title="Cash Register">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#cash-register"><i class="ti ti-cash"></i></a>
+            <a href="javascript:void(0);" id="cash-register">
+                <i class="ti ti-cash"></i></a>
         </li>
-        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="top"
+        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="bottom"
             data-bs-title="Print Last Reciept">
-            <a href="#"><i class="ti ti-printer"></i></a>
+            <a href="javascript:void(0)" id="print-receipt"><i class="ti ti-printer"></i></a>
         </li>
-        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="top"
+        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="bottom"
             data-bs-title="Today’s Sale">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#today-sale"><i class="ti ti-progress"></i></a>
+            <a href="javascript:void(0)" id="today-sale"><i class="ti ti-progress"></i></a>
         </li>
-        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="top"
-            data-bs-title="Today’s Profit">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#today-profit"><i
-                    class="ti ti-chart-infographic"></i></a>
+        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="bottom"
+            data-bs-title="Recent Transaction">
+            <a href="javascript:void(0)" id="recent-transaction"><i class="ti ti-refresh-dot"></i></a>
         </li>
-        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="top"
+        <li class="nav-item nav-item-box" data-bs-toggle="tooltip" data-bs-placement="bottom"
             data-bs-title="POS Settings">
-            <a href="pos-settings.html"><i class="ti ti-settings"></i></a>
+            <a href="pos-settings.html">
+                <i class="ti ti-settings"></i>
+            </a>
         </li>
         <li class="nav-item dropdown has-arrow main-drop profile-nav">
             <a href="javascript:void(0);" class="nav-link userset" data-bs-toggle="dropdown">

@@ -3,7 +3,8 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanySettingController;
 use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\POSController;
+use App\Http\Controllers\Admin\POS\GeneralController;
+use App\Http\Controllers\Admin\POS\PosController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -62,7 +63,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
 
         Route::group(['prefix' => 'pos', 'as' => 'pos.'], function() {
-            Route::get('/',[POSController::class,'index'])->name('index');
+            Route::get('/',[PosController::class,'index'])->name('index');
+            Route::post('/cash-register',[GeneralController::class,'cashRegister'])->name('cash-register');
+            Route::post('/print-receipt',[GeneralController::class,'printReceipt'])->name('print-receipt');
+            Route::post('/today-sale',[GeneralController::class,'todaySale'])->name('today-sale');
+            Route::get('/order-discount',[GeneralController::class,'orderDiscount'])->name('order-discount');
+            Route::get('/order-tax',[GeneralController::class,'orderTax'])->name('order-tax');
+            Route::get('/shipping-cost',[GeneralController::class,'shippingCost'])->name('shipping-cost');
+            Route::get('/hold-order',[GeneralController::class,'holdOrder'])->name('hold-order');
+            Route::get('/create-customer',[GeneralController::class,'createCustomer'])->name('create-customer');    
+            Route::get('/reset-order',[GeneralController::class,'resetOrder'])->name('reset-order');
+            Route::get('/view-orders',[GeneralController::class,'viewOrders'])->name('view-orders');
+            Route::get('/show-product',[GeneralController::class,'showProduct'])->name('show-product');
+            Route::get('/edit-product',[GeneralController::class,'editProduct'])->name('edit-product');
+            Route::get('/delete-product',[GeneralController::class,'deleteProduct'])->name('delete-product');
+            Route::get('/recent-transaction',[GeneralController::class,'recentTransaction'])->name('recent-transaction');
         });
     });
 });

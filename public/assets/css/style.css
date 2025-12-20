@@ -14510,13 +14510,13 @@ svg.feather {
 [data-theme=dark] aside.product-order-list .head h5 {
   color: #D8DFEE;
 }
-[data-theme=dark] #print-receipt .modal-body .tax-invoice span, [data-theme=dark] #print-receipt .modal-body table thead th, [data-theme=dark] #print-receipt .modal-body table tbody tr table tr:last-child td {
+[data-theme=dark] .print-receipt .modal-body .tax-invoice span, [data-theme=dark] .print-receipt .modal-body table thead th, [data-theme=dark] .print-receipt .modal-body table tbody tr table tr:last-child td {
   color: #D8DFEE;
 }
 [data-theme=dark] aside.product-order-list .order-total table tr td {
   border-bottom: none;
 }
-[data-theme=dark] #print-receipt .modal-body table {
+[data-theme=dark] .print-receipt .modal-body table {
   background: none;
 }
 [data-theme=dark] .sidebar-footer {
@@ -41860,32 +41860,32 @@ aside.product-order-list .btn-row .btn:last-child {
   justify-content: center;
 }
 
-#print-receipt {
+.print-receipt {
   color: #646B72;
 }
-#print-receipt .modal-dialog {
+.print-receipt .modal-dialog {
   width: 424px;
 }
-#print-receipt .modal-body {
+.print-receipt .modal-body {
   padding: 30px;
   color: #646B72;
 }
-#print-receipt .modal-body h6 {
+.print-receipt .modal-body h6 {
   font-size: 16px;
 }
-#print-receipt .modal-body .info h6 {
+.print-receipt .modal-body .info h6 {
   margin: 10px 0;
   font-weight: 700;
 }
-#print-receipt .modal-body .info a {
+.print-receipt .modal-body .info a {
   color: #646B72;
 }
-#print-receipt .modal-body .tax-invoice h6 {
+.print-receipt .modal-body .tax-invoice h6 {
   margin: 10px 0;
   font-weight: 700;
   position: relative;
 }
-#print-receipt .modal-body .tax-invoice h6:after, #print-receipt .modal-body .tax-invoice h6:before {
+.print-receipt .modal-body .tax-invoice h6:after, .print-receipt .modal-body .tax-invoice h6:before {
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -41893,23 +41893,23 @@ aside.product-order-list .btn-row .btn:last-child {
   border-top: 1px dashed #E6EAED;
   width: 35%;
 }
-#print-receipt .modal-body .tax-invoice h6:before {
+.print-receipt .modal-body .tax-invoice h6:before {
   position: absolute;
   top: 50%;
   left: 0;
 }
-#print-receipt .modal-body .tax-invoice h6:after {
+.print-receipt .modal-body .tax-invoice h6:after {
   position: absolute;
   top: 50%;
   right: 0;
 }
-#print-receipt .modal-body .tax-invoice .invoice-user-name {
+.print-receipt .modal-body .tax-invoice .invoice-user-name {
   margin-bottom: 10px;
 }
-#print-receipt .modal-body .tax-invoice span {
+.print-receipt .modal-body .tax-invoice span {
   color: #212B36;
 }
-#print-receipt .modal-body table thead th {
+.print-receipt .modal-body table thead th {
   color: #212B36;
   font-weight: 700;
   width: auto;
@@ -41918,36 +41918,36 @@ aside.product-order-list .btn-row .btn:last-child {
   border-top: 1px dashed #E6EAED;
   border-bottom: 1px dashed #E6EAED;
 }
-#print-receipt .modal-body table tbody tr:first-child td {
+.print-receipt .modal-body table tbody tr:first-child td {
   padding-top: 10px;
 }
-#print-receipt .modal-body table tbody tr:last-child td {
+.print-receipt .modal-body table tbody tr:last-child td {
   padding-bottom: 10px;
 }
-#print-receipt .modal-body table tbody tr td {
+.print-receipt .modal-body table tbody tr td {
   padding: 5px;
 }
-#print-receipt .modal-body table tbody tr table {
+.print-receipt .modal-body table tbody tr table {
   border-top: 1px dashed #E6EAED;
 }
-#print-receipt .modal-body table tbody tr table tr:last-child td {
+.print-receipt .modal-body table tbody tr table tr:last-child td {
   font-weight: 700;
   font-size: 18px;
   color: #092C4C;
 }
 @media (max-width: 991.98px) {
-  #print-receipt .modal-body table tbody tr table tr:last-child td {
+  .print-receipt .modal-body table tbody tr table tr:last-child td {
     font-size: 16px;
   }
 }
-#print-receipt .modal-body .invoice-bar {
+.print-receipt .modal-body .invoice-bar {
   border-top: 1px dashed #E6EAED;
   padding: 20px 0 0 0;
 }
-#print-receipt .modal-body .invoice-bar img {
+.print-receipt .modal-body .invoice-bar img {
   margin: 20px 0 10px;
 }
-#print-receipt .modal-body .invoice-bar p {
+.print-receipt .modal-body .invoice-bar p {
   margin-bottom: 20px;
 }
 
